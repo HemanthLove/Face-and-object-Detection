@@ -1,88 +1,79 @@
-# SimpleFaceDetection
-A Simple Face Detection and Object Detection Workflow for Images and Real Time Video Streams
+# Face and Object Detection
 
-## Video Tutorial 🎥
-<a href="https://youtu.be/GhAC0xBIepQ" target="_blank"><img width="600" alt="Python Face Detection from Scratch Tutorial Thumbnail" src="https://github.com/user-attachments/assets/9b9b3cd5-09b6-4488-910a-1ee8d94c7afd" /></a>
+This project performs **face detection and object detection** using **YOLOv8 and OpenCV**.
 
-## Face Detection Model Source
-This workflow relies both on the official version of YOLO that we download directly from our Python code, as well as a community version of YOLO, `yolov8m-face.pt`, that we download from here:
-<br>
-https://github.com/akanametov/yolo-face
-<br>
-<br>
-Huge shoutout to Akanametov for sharing his community version of YOLO-Face with the world!
-<br>
-Please give him a star and a follow if you end up using this workflow:
-<br>
-https://github.com/akanametov
+The project can detect faces and different objects from images and real-time webcam video.
 
-## Installation Instructions - CPU:
-1. Install Miniconda on your Windows system: https://www.anaconda.com/download/success
-2. Set up a working environemnt:
+## Features
+
+* Face detection using a YOLO-based face detection model
+* Object detection using YOLOv8
+* Detection on images
+* Real-time detection using a webcam
+* Displays bounding boxes and labels for detected objects
+
+## Technologies Used
+
+* Python
+* OpenCV
+* YOLOv8
+* Jupyter Notebook
+
+## Project Structure
+
+```text
+Face-and-object-Detection/
+│
+├── Face Detection in Images.ipynb
+├── Face Detection in Live Videos.ipynb
+├── code1.ipynb
+│
+├── demo.jpg
+├── demo1.jpg
+├── demo2.jpg
+├── demo3.jpg
+├── demo4.jpg
+├── demo5.jpg
+├── demo6.jpg
+│
+├── README.md
+└── .gitignore
 ```
-conda create -n detection_env python=3.12
-conda activate detection_env
-```
-3. Install dependencies:
-```
+
+## Installation
+
+Install the required libraries:
+
+```bash
 pip install opencv-python ultralytics jupyter
 ```
-4. Open Jupyter Lab:
-```
+
+Start Jupyter Lab:
+
+```bash
 jupyter lab
 ```
-5. Run notebooks.
 
-## Installation Instructions - GPU:
-Same as the CPU instructions from above, but with the following Pytorch addons:
-1. Find your version of CUDA in your terminal with: `nvidia-smi`
-2. Find the right command for your version of CUDA here: https://pytorch.org/get-started/locally/
-3. If the right command for your version of CUDA is `pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu130` then do the following:
-   - uninstall Pytorch, such that: `pip uninstall torch torchvision`
-   - only then, right command for your version of CUDA: `pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130`
-4. Open Jupyter Lab:
-```
-jupyter lab
-```
-5. Run notebooks.
+Then open the notebooks and run the cells.
 
-## Download Demo Images
+## How to Use
 
-There are two ways to get the demo images used in this tutorial.
+### Image Detection
 
-### Option 1 (Recommended)
+Open the image detection notebook and provide an image as input. The model will detect faces and objects and display the results with bounding boxes.
 
-Clone this repository. All resized demo images are already included and ready to use.
+### Live Video Detection
 
-### Option 2
+Open the live video detection notebook to perform real-time detection using your webcam.
 
-Download the original high-resolution images from Magnific and resize them yourself using the code below.
+## Sample Images
 
-### Demo Image Sources
+The project includes sample images for testing the detection models. You can also use your own images.
 
-- demo.jpg (Girl + Cat): <a href="https://www.magnific.com/free-photo/beautiful-stylish-woman-purple-suit-hat-walking-city-street-spring-summer-autumn-season-fashion-trend-black-cat_11576374.htm#fromView=search&page=1&position=8&uuid=b7d0d360-4260-48fc-9f61-3005a0486868&query=cat+lady
-" target="_blank">Download Here</a>
-- demo1.jpg (Cyclist + Cars): <a href="https://www.magnific.com/free-photo/cyclist-riding-bridge-city-dynamic-motion-with-blur-effect_427602721.htm#fromView=search&page=1&position=31&uuid=8c46b620-363f-45fe-b57c-280a59fac0c3&query=vehicles" target="_blank">Download Here</a>
-- demo2.jpg (Kitchen): <a href="https://www.magnific.com/free-photo/portrait-beautiful-brunette-girl-chopping-vegetables-meal-making-salad-kitchen-eating_78042227.htm#fromView=search&page=1&position=20&uuid=38c9393f-bb3d-4cb1-ae0f-b9eaaa835d21&query=kitchen" target="_blank">Download Here</a>
-- demo3.jpg (Dog + Sheep): <a href="https://www.magnific.com/free-photo/mother-sheep-with-its-two-baby-sheep-grassy-field-daytime_11063035.htm#fromView=search&page=2&position=25&uuid=4838e797-6eb9-4369-971a-6549ce62d2f6&query=dog+sheep" target="_blank">Download Here</a>
-- demo4.jpg (Laptop, Cup & Mouse): <a href="https://www.magnific.com/free-photo/laptop-mouse-top-view_7342965.htm#fromView=search&page=1&position=16&uuid=bb4236e1-ad8c-4b86-a33d-b209ded588a1&query=computer
-" target="_blank">Download Here</a>
+## Model Files
 
-### Resize the Images
+The project uses YOLO model weights for face and object detection. The `.pt` model files are excluded from the repository using `.gitignore` and should be downloaded separately before running the project.
 
-Use the following OpenCV code to resize each downloaded image to approximately 15% of its original size.
+## Author
 
-```python
-import cv2
-
-img = cv2.imread("original_image_name.jpg")
-
-resized_img = cv2.resize(
-    img,
-    None,
-    fx=0.15,
-    fy=0.15
-)
-
-cv2.imwrite("resized_image_name.jpg", resized_img)
-```
+**Hemanth Love**
